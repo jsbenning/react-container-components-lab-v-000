@@ -6,7 +6,7 @@ import React from 'react';
 const MovieReviews = (props) => {
   return (
     <div>
-
+    {props.review}
     </div>
   )
 }
