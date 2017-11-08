@@ -32,12 +32,12 @@ class LatestMovieReviewsContainer extends Component {
 	  });
   }
 
-  const recentReviews = Object.assign({}, this.state, {reviews: this.fetchReviews(URL)});
+  //const recentReviews = Object.assign({}, this.state, {reviews: fetchReviews});
 
   addedMovies = () => {
     const stateCopy = Object.assign({}, this.state);
     const recentReviews = stateCopy.reviews.map((review) => {
-      return <MovieReviews review={review} />
+      return <MovieReviews key={review.etag} review={review} />
     });
     return recentReviews;
   }
@@ -49,7 +49,8 @@ class LatestMovieReviewsContainer extends Component {
   render() {
     return (
       <div className="searchable-movie-reviews">
-       <button onClick={this.setState({recentReviews})}>Recent Reviews</button>
+      <button onClick={this.setState({recentReviews})}>Recent Reviews</button>
+       
        {addedMovies}
 
 
