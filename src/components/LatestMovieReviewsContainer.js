@@ -18,44 +18,6 @@ class LatestMovieReviewsContainer extends Component {
     }
   };
 
-
-  // fetchReviews = (URL) => {
-  //   return fetch(URL)
-  // 	.then(function(response) {
-  // 		if (response.status >= 400) {
-  // 			throw new Error("Bad response from server");
-  // 		}
-  // 		return response.json();
-  // 	})
-  // 	.then(function(reviews) {
-  //     return reviews.results;
-	//   });
-  // }
-
-  //const recentReviews = Object.assign({}, this.state, {reviews: fetchReviews});
-
-  latestReviews = () => {
-    const stateCopy = Object.assign({}, this.state);
-    //stateCopy.reviews.map((review) => {
-      //console.log(review)
-
-    //})
-    // stateCopy.reviews.map((review) => {
-    //   console.log(review)
-    // })
-    //stateCopy.reviews.map((review) => {
-      //console.log(review)
-    //   return <MovieReviews />
-    // });
-    // return fetchedReviews;
-    //return <MovieReviews reviews={stateCopy} />
-
-
-  }
-
-
-
-
   componentWillMount() {
     fetch(URL)
     .then(response => response.json())
@@ -68,7 +30,7 @@ class LatestMovieReviewsContainer extends Component {
         <ul>
         {
           (this.state.reviews.length)
-            ? <MovieReviews reviews={this.state.reviews} />
+            ? <MovieReviews key={this.state.reviews.index} reviews={this.state.reviews} />
             : <div>Loading...</div>
         }
         </ul>

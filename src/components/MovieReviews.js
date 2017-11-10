@@ -4,35 +4,17 @@ import React from 'react';
 
 // stateless and functional
 
+
 const MovieReviews = ({reviews}) => {
-  //return reviews.length
-   reviews.map((review) => {
-      return (
-        <li>review.display_title</li>
-      )
-   })
+  console.log(reviews)
+  return <div>
+    {
+     reviews.map(review => (
+        <li key={review.id}>{review.display_title} <p>Review by: {review.byline}</p>
+        <p>{review.summary_short}</p><a href={review.link.url}>Full Review Here</a><p></p></li>
+      ))
+    }
+  </div>
 }
 
 export default MovieReviews;
-
-// props.reviews.map((review) => {
-//   return (
-//     <li>
-//     {review.display_title}
-//     </li>
-//   )
-// })
-
-//stateCopy.reviews.map((review) => {
-  //console.log(review)
-
-//})
-// stateCopy.reviews.map((review) => {
-//   console.log(review)
-// })
-//stateCopy.reviews.map((review) => {
-  //console.log(review)
-//   return <MovieReviews />
-// });
-// return fetchedReviews;
-//return <MovieReviews reviews={stateCopy} />
