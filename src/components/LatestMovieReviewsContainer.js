@@ -19,41 +19,51 @@ class LatestMovieReviewsContainer extends Component {
   };
 
 
-  fetchReviews = (URL) => {
-    return fetch(URL)
-  	.then(function(response) {
-  		if (response.status >= 400) {
-  			throw new Error("Bad response from server");
-  		}
-  		return response.json();
-  	})
-  	.then(function(reviews) {
-      return reviews.results;
-	  });
-  }
+  // fetchReviews = (URL) => {
+  //   return fetch(URL)
+  // 	.then(function(response) {
+  // 		if (response.status >= 400) {
+  // 			throw new Error("Bad response from server");
+  // 		}
+  // 		return response.json();
+  // 	})
+  // 	.then(function(reviews) {
+  //     return reviews.results;
+	//   });
+  // }
 
   //const recentReviews = Object.assign({}, this.state, {reviews: fetchReviews});
 
-  addedMovies = () => {
+  latestReviews = () => {
     const stateCopy = Object.assign({}, this.state);
-    const recentReviews = stateCopy.reviews.map((review) => {
-      return <MovieReviews key={review.etag} review={review} />
-    });
-    return recentReviews;
+    //stateCopy.reviews.map((review) => {
+      //console.log(review)
+
+    //})
+    //console.log(stateCopy.reviews.length)
+    // const fetchedReviews = stateCopy.reviews.map((review) => {
+    //   <MovieReviews review={review} />
+    // });
+    // return fetchedReviews;
+    return <MovieReviews reviews={stateCopy} />
+
   }
 
 
 
 
+  componentWillMount() {
+    fetch(URL)
+    .then(response => response.json())
+    .then((reviews => this.setState( { reviews: reviews.results } )))
+  }
 
   render() {
     return (
       <div className="searchable-movie-reviews">
-      <button onClick={this.setState({recentReviews})}>Recent Reviews</button>
-       
-       {addedMovies}
-
-
+      <ul>
+      {this.latestReviews()}
+      </ul>
       </div>
     )
   };
