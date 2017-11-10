@@ -40,12 +40,16 @@ class LatestMovieReviewsContainer extends Component {
       //console.log(review)
 
     //})
-    //console.log(stateCopy.reviews.length)
-    // const fetchedReviews = stateCopy.reviews.map((review) => {
-    //   <MovieReviews review={review} />
-    // });
+    // stateCopy.reviews.map((review) => {
+    //   console.log(review)
+    // })
+    stateCopy.reviews.map((review) => {
+      //console.log(review)
+      return <MovieReviews review={review} />
+    });
     // return fetchedReviews;
-    return <MovieReviews reviews={stateCopy} />
+    //return <MovieReviews reviews={stateCopy} />
+
 
   }
 
@@ -61,9 +65,13 @@ class LatestMovieReviewsContainer extends Component {
   render() {
     return (
       <div className="searchable-movie-reviews">
-      <ul>
-      {this.latestReviews()}
-      </ul>
+        <ul>
+        {
+          (this.state.reviews.length)
+            ? <div>{this.latestReviews()}</div>
+            : <div> Something went wrong </div>
+        }
+        </ul>
       </div>
     )
   };
