@@ -7,7 +7,7 @@ import React from 'react';
 
 const MovieReviews = ({reviews}) => {
   console.log(reviews)
-  return <div>
+  return <div className="review-list">
     {
      reviews.map(review => (
         <li key={review.id}>{review.display_title} <p>Review by: {review.byline}</p>
@@ -16,5 +16,7 @@ const MovieReviews = ({reviews}) => {
     }
   </div>
 }
+
+MovieReviews.defaultProps = {reviews: []}
 
 export default MovieReviews;

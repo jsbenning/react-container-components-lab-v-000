@@ -26,7 +26,7 @@ class LatestMovieReviewsContainer extends Component {
 
   render() {
     return (
-      <div className="searchable-movie-reviews">
+      <div className="latest-movie-reviews">
         <ul>
         {
           (this.state.reviews.length)
