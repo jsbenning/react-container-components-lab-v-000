@@ -24,7 +24,7 @@ class LatestMovieReviewsContainer extends Component {
     .then((reviews => this.setState( { reviews: reviews.results } )))
   }
 
-  render() {
+  render() { // could also change ternary condition to conditional in MovieReviews
     return (
       <div className="latest-movie-reviews">
         <ul>
