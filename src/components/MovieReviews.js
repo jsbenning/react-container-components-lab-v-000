@@ -4,9 +4,13 @@ import React from 'react';
 
 // stateless and functional
 
-const MovieReviews = (props) => {
-  return props.review
-   //return <li>{review.display_title || "Nuthin"}</li>
+const MovieReviews = ({reviews}) => {
+  //return reviews.length
+   reviews.map((review) => {
+      return (
+        <li>review.display_title</li>
+      )
+   })
 }
 
 export default MovieReviews;
@@ -18,3 +22,17 @@ export default MovieReviews;
 //     </li>
 //   )
 // })
+
+//stateCopy.reviews.map((review) => {
+  //console.log(review)
+
+//})
+// stateCopy.reviews.map((review) => {
+//   console.log(review)
+// })
+//stateCopy.reviews.map((review) => {
+  //console.log(review)
+//   return <MovieReviews />
+// });
+// return fetchedReviews;
+//return <MovieReviews reviews={stateCopy} />

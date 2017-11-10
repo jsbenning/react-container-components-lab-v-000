@@ -43,10 +43,10 @@ class LatestMovieReviewsContainer extends Component {
     // stateCopy.reviews.map((review) => {
     //   console.log(review)
     // })
-    stateCopy.reviews.map((review) => {
+    //stateCopy.reviews.map((review) => {
       //console.log(review)
-      return <MovieReviews review={review} />
-    });
+    //   return <MovieReviews />
+    // });
     // return fetchedReviews;
     //return <MovieReviews reviews={stateCopy} />
 
@@ -68,8 +68,8 @@ class LatestMovieReviewsContainer extends Component {
         <ul>
         {
           (this.state.reviews.length)
-            ? <div>{this.latestReviews()}</div>
-            : <div> Something went wrong </div>
+            ? <MovieReviews reviews={this.state.reviews} />
+            : <div>Loading...</div>
         }
         </ul>
       </div>
